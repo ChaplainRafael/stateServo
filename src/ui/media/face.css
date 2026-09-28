@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    padding: 6px;
+
+    color: var(--vscode-foreground);
+    background: transparent;
+
+    font-family:
+        var(--vscode-font-family),
+        monospace;
+}
+
+
+#face {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 8px;
+
+    border:
+        1px solid
+        var(--vscode-panel-border);
+
+    background:
+        var(--vscode-sideBar-background);
+
+    transition:
+        border-color 160ms ease,
+        color 160ms ease;
+}
+
+
+/*
+ * --------------------------------------------------
+ * HEADER
+ * --------------------------------------------------
+ */
+
+.header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    opacity: 0.7;
+}
+
+
+/*
+ * --------------------------------------------------
+ * FACE
+ * --------------------------------------------------
+ */
+
+.mask {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 80px;
+}
+
+
+.eyes {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+
+.eye {
+    width: 20px;
+    height: 14px;
+
+    border:
+        2px solid
+        currentColor;
+
+    border-radius: 40%;
+
+    transition:
+        transform 120ms ease,
+        opacity 120ms ease;
+}
+
+
+.eye.blink {
+    transform:
+        scaleY(0.08);
+}
+
+
+.mouth {
+    width: 32px;
+    height: 10px;
+
+    border-bottom:
+        2px solid
+        currentColor;
+
+    border-radius:
+        0 0 50% 50%;
+
+    transition:
+        width 160ms ease,
+        height 160ms ease,
+        transform 160ms ease;
+}
+
+
+/*
+ * --------------------------------------------------
+ * MOODS
+ * --------------------------------------------------
+ */
+
+#face[data-mood="focused"] {
+    color:
+        var(--vscode-textLink-foreground);
+}
+
+
+#face[data-mood="focused"] .mouth {
+    width: 18px;
+}
+
+
+#face[data-mood="warning"] {
+    color:
+        var(--vscode-editorWarning-foreground);
+}
+
+
+#face[data-mood="warning"] .eye:first-child {
+    transform:
+        rotate(10deg);
+}
+
+
+#face[data-mood="warning"] .eye:last-child {
+    transform:
+        rotate(-10deg);
+}
+
+
+#face[data-mood="error"],
+#face[data-mood="save-error"] {
+    color:
+        var(--vscode-editorError-foreground);
+}
+
+
+#face[data-mood="error"] .mouth,
+#face[data-mood="save-error"] .mouth {
+    width: 26px;
+    height: 4px;
+
+    transform:
+        rotate(180deg);
+}
+
+
+#face[data-mood="save-success"] {
+    color:
+        var(--vscode-charts-green);
+}
+
+
+#face[data-mood="save-success"] .mouth {
+    width: 38px;
+    height: 14px;
+}
+
+
+#face[data-mood="idle"] {
+    opacity: 0.55;
+}
+
+
+#face[data-mood="idle"] .eye {
+    transform:
+        scaleY(0.45);
+}
+
+
+/*
+ * --------------------------------------------------
+ * FILE + COUNTERS
+ * --------------------------------------------------
+ */
+
+.file {
+    margin-top: 8px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 10px;
+
+    opacity: 0.75;
+}
+
+
+.stats {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    opacity: 0.7;
+}
+
+
+/*
+ * --------------------------------------------------
+ * STATUS COLORS
+ * --------------------------------------------------
+ */
+
+#face[data-mood="error"] #errors,
+#face[data-mood="save-error"] #errors {
+    color:
+        var(--vscode-editorError-foreground);
+}
+
+
+#face[data-mood="warning"] #warnings {
+    color:
+        var(--vscode-editorWarning-foreground);
+}

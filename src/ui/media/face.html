@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="
+            default-src 'none';
+            style-src __CSP_SOURCE__;
+            script-src __CSP_SOURCE__;
+        "
+    >
+
+    <link
+        rel="stylesheet"
+        href="__CSS_URI__"
+    >
+
+    <title>
+        Code Feelings
+    </title>
+
+</head>
+
+<body>
+
+    <main
+        id="face"
+        data-mood="neutral"
+    >
+
+        <div class="header">
+
+            <span id="mood">
+                NEUTRAL
+            </span>
+
+            <span id="activity">
+                IDLE
+            </span>
+
+        </div>
+
+
+        <section
+            class="mask"
+            aria-label="Wrench coding face"
+        >
+
+            <div class="eyes">
+
+                <div
+                    class="eye"
+                    id="left-eye"
+                >o</div>
+
+                <div
+                    class="eye"
+                    id="right-eye"
+                >o</div>
+
+            </div>
+
+
+            <div
+                class="mouth"
+                id="mouth"
+            ></div>
+
+        </section>
+
+
+        <div
+            class="file"
+            id="file"
+        >
+            NO ACTIVE FILE
+        </div>
+
+
+        <div class="stats">
+
+            <span id="errors">
+                ERR 0
+            </span>
+
+            <span id="warnings">
+                WRN 0
+            </span>
+
+        </div>
+
+    </main>
+
+
+    <script src="__JS_URI__"></script>
+
+</body>
+
+</html>

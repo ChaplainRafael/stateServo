@@ -1,5 +1,6 @@
 import * as vscode from'vscode' ;
 import { ActivityState } from '../state/activityState';
+import { getMood } from '../mood/moodEngine';
 
 export class FaceViewProvider implements vscode.WebviewViewProvider{
 
@@ -9,16 +10,18 @@ export class FaceViewProvider implements vscode.WebviewViewProvider{
     constructor(private readonly extensionUri:vscode.Uri , initialState:ActivityState ){
         this.latestState = {...initialState}; 
     }
-
     update(state: ActivityState): void {
-        this.latestState = state;
-        console.log("update state",this.latestState);
+        this.latestState = {...state};
+        const mood = getMood(this.latestState);
+        console.log(this.latestState);
+        console.log("mood:", mood);
         this.webViewView?.webview.postMessage({
             type:"state",
-            state,
+            state: this.latestState,
+            mood
         });
     }
-
+    
     async resolveWebviewView(
         webviewView: vscode.WebviewView, 
         context: vscode.WebviewViewResolveContext, 
@@ -35,7 +38,16 @@ export class FaceViewProvider implements vscode.WebviewViewProvider{
                 mediaUri
             ]
         };
-        
+        webviewView.webview.onDidReceiveMessage((message) => {
+            if (message.type === "ready") {
+                console.log("webview is ready");
+
+                webviewView.webview.postMessage({
+                    type: "state",
+                    state: this.latestState,
+                });
+            }
+        });    
         const htmlUri = vscode.Uri.joinPath(mediaUri,"face.html");
 
         const cssUri = vscode.Uri.joinPath(mediaUri,'face.css');

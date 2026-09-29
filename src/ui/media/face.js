@@ -38,12 +38,15 @@ const moodLabels = {
  * --------------------------------------------------
  */
 
-function renderState(state) {
-  face.dataset.mood = state.mood;
-
+function renderState(state, mood) {
+  console.log("MOOD:", mood);
+  console.log("DATASET BEFORE:", face.dataset.mood);
+  face.dataset.mood = mood;
+  console.log("DATASET AFTER:", face.dataset.mood);
   moodElement.textContent = moodLabels[state.mood] ?? "NEUTRAL";
 
   if (state.typing) {
+    console.log(state);
     activityElement.textContent = "EDITING";
   } else if (state.inactive) {
     activityElement.textContent = "IDLE";
@@ -74,10 +77,11 @@ window.addEventListener("message", (event) => {
   const message = event.data;
 
   if (!message || message.type !== "state") {
+    console.log("didn't receive on listener");
     return;
   }
   console.log("listener state", message.state);
-  renderState(message.state);
+  renderState(message.state, message.mood);
 });
 
 /*

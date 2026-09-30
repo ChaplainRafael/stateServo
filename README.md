@@ -1,71 +1,92 @@
-# code-feelings README
+# Code Feelings
 
-This is the README for your extension "code-feelings". After writing up a brief description, we recommend including the following sections.
+A tiny companion for VS Code that reacts to your coding activity.
 
+**Code. Errors. Warnings. Saves. Inactivity.**
+
+Your code has consequences.
+The machine notices.
+
+![Code Feelings](images/code-feelings.png)
+
+[![Code Feelings Demo](images/code-feelings.gif)](images/code-feelings.gif)
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Code Feelings monitors your current coding state and changes its expression accordingly.
 
-For example if there is an image subfolder under your extension project workspace:
+* **Neutral** — `X X`
+* **Focused** — `^ ^`
+* **Warning** — `O o`
+* **Error** — `@ @`
+* **Save Error** — `\ /`
+* **Save Success** — `O O`
+* **Idle** — `= =`
 
-\!\[feature X\]\(images/feature-x.png\)
+The companion reacts to:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+* Typing activity
+* Active files
+* Errors
+* Warnings
+* Successful saves
+* Saves containing errors
+* Inactivity
+
+The face uses a CRT/terminal-inspired visual style with small state-based reactions.
+
+## How It Works
+
+Code Feelings observes activity inside VS Code and maintains a small internal state.
+
+The extension keeps raw coding state separate from the derived mood, allowing the face to react without mixing presentation logic into the activity state.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+No additional software or configuration is required.
 
-## Extension Settings
+Code Feelings runs inside Visual Studio Code.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Usage
 
-For example:
+Install Code Feelings and open VS Code.
 
-This extension contributes the following settings:
+The companion appears in the Explorer sidebar automatically.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+Start coding and Wrenchy will react to your activity.
+
+You can disable the extension through VS Code's normal extension controls:
+
+**Extensions → Code Feelings → ⚙️ → Disable**
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+This is an early release.
+
+If you encounter a bug, please report it through the project's issue tracker.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+Initial release.
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+* Added Wrenchy companion
+* Added activity tracking
+* Added typing detection
+* Added active file detection
+* Added diagnostic tracking for errors and warnings
+* Added save state detection
+* Added inactivity detection
+* Added mood system
+* Added CRT/terminal-inspired interface
+* Added state-based facial expressions
 
 ---
 
-## Following extension guidelines
+## License
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+See the repository for license information.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+---
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Made with TypeScript, VS Code, and a slightly judgmental machine spirit.

@@ -1,8 +1,12 @@
 {
   "name": "code-feelings",
   "displayName": "Code Feelings",
-  "description": "mood changer window based on code state",
+  "description": "A tiny companion that will react to your code state, just don't make him angry!",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChaplainRafael/stateServo.git"
+  },
   "engines": {
     "vscode": "^1.137.0"
   },
@@ -24,8 +28,8 @@
     },
     "commands": [
       {
-        "command": "code-feelings.helloWorld",
-        "title": "Hello World"
+        "command": "code-feelings.wrenchy",
+        "title": "Wrenchy"
       }
     ]
   },

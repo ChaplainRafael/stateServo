@@ -13,8 +13,6 @@ export class FaceViewProvider implements vscode.WebviewViewProvider{
     update(state: ActivityState): void {
         this.latestState = {...state};
         const mood = getMood(this.latestState);
-        console.log(this.latestState);
-        console.log("mood:", mood);
         this.webViewView?.webview.postMessage({
             type:"state",
             state: this.latestState,
@@ -28,7 +26,6 @@ export class FaceViewProvider implements vscode.WebviewViewProvider{
         token: vscode.CancellationToken): Promise<void> {
         
         this.webViewView = webviewView;
-        console.log("web view resolved");
 
         const mediaUri = vscode.Uri.joinPath(this.extensionUri ,'src','ui', 'media');
 
@@ -40,7 +37,6 @@ export class FaceViewProvider implements vscode.WebviewViewProvider{
         };
         webviewView.webview.onDidReceiveMessage((message) => {
             if (message.type === "ready") {
-                console.log("webview is ready");
 
                 webviewView.webview.postMessage({
                     type: "state",

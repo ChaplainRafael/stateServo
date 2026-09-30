@@ -240,13 +240,13 @@ body {
  *      O   o
  *
  * Error:
- *      @   @
+ *      ?   ?
  *
  * Save error:
  *      \   /
  *
  * Save success:
- *      O   O
+ *      >   <
  *
  * Idle:
  *      =   =
@@ -398,7 +398,7 @@ body {
     left: 50%;
     bottom: 1px;
 
-    width: 6px;
+    width: 14px;
     height: 2px;
 
     background:
@@ -595,7 +595,7 @@ body {
 /* ==================================================
  * ERROR
  *
- *      @   @
+ *      ?   ?
  *
  * Diagnostic corruption / system distress.
  * ================================================== */
@@ -616,11 +616,11 @@ body {
 /*
  * ERROR:
  *
- *      @   @
+ *      ?   ?
  */
 
 #face[data-mood="error"] .eye {
-    --eye-character: "@";
+    --eye-character: "?";
 
     filter:
         drop-shadow(
@@ -697,10 +697,13 @@ body {
         0 0 18px rgba(0, 255, 42, 0.18);
 }
 
-
+#face[data-mood="save-success"] #right-eye {
+    --eye-character: "<";
+}
+#face[data-mood="save-success"] #left-eye {
+    --eye-character: ">";
+}
 #face[data-mood="save-success"] .eye {
-    --eye-character: "O";
-
     filter:
         drop-shadow(
             0 0 8px currentColor
@@ -739,7 +742,7 @@ body {
 
 
 #face[data-mood="idle"] .eye {
-    --eye-character: "=";
+    --eye-character: "Z";
 
     transform:
         scale(0.85);

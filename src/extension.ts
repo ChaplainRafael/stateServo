@@ -20,10 +20,6 @@ export function activate(
     context: vscode.ExtensionContext
 ) {
 
-    console.log(
-        'Code Feelings activated.'
-    );
-
     /*
      * --------------------------------------------------
      * COMMAND
@@ -32,11 +28,11 @@ export function activate(
 
     const disposable =
         vscode.commands.registerCommand(
-            'code-feelings.helloWorld',
+            'code-feelings.wrenchy',
             () => {
 
                 vscode.window.showInformationMessage(
-                    'The Omnissiah watches over you, operator!'
+                    'Hellooo ^_^!'
                 );
             }
         );
@@ -101,17 +97,13 @@ export function activate(
                     vscode.DiagnosticSeverity.Warning
             ).length;
     }
-
-
     /*
      * Keep track of the last mood we sent.
      * This prevents the timer from spamming
      * the webview unnecessarily.
      */
 
-    let lastPublishedMood: Mood =
-        getMood(activityState);
-
+    let lastPublishedMood: Mood;
 
     function publishState(): void {
 
@@ -147,16 +139,15 @@ export function activate(
             initialEditor.document.uri
         );
 
-    } else {
+        } else {
+            activityState.activeFile =
+                undefined;
 
-        activityState.activeFile =
-            undefined;
+            activityState.inactive = true;
 
-        activityState.inactive = true;
-
-        activityState.errors = 0;
-        activityState.warnings = 0;
-    }
+            activityState.errors = 0;
+            activityState.warnings = 0;
+        }
 
     publishState();
 

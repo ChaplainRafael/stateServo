@@ -1,8 +1,11 @@
 {
-  "name": "code-feelings",
-  "displayName": "Code Feelings",
-  "description": "A tiny companion that will react to your code state, just don't make him angry!",
+  "name": "Wrenchy",
+  "displayName": "Wrenchy",
+  "description": "A tiny companion that will react to your code state. He has different emotions such as happy,neutral,sad and confused just don't make him angry!",
   "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "ChaplainRafael",
+  "icon": "images/wrenchy.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/ChaplainRafael/stateServo.git"

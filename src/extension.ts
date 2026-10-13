@@ -40,7 +40,17 @@ export function activate(
     context.subscriptions.push(
         disposable
     );
+    const openCommand = vscode.commands.registerCommand(
+        'code-feelings.open',
+        async () => {
+            await vscode.commands.executeCommand(
+                'workbench.action.openView',
+                'code-feelings.wrenchFace'
+            );
+        }
+    );
 
+    context.subscriptions.push(openCommand);
 
     /*
      * --------------------------------------------------

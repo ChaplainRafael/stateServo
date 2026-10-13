@@ -33,6 +33,10 @@
       {
         "command": "code-feelings.wrenchy",
         "title": "Wrenchy"
+      },
+      {
+        "command": "code-feelings.open",
+        "title": "Open Code Feelings"
       }
     ]
   },

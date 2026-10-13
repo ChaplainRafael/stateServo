@@ -2,7 +2,7 @@
   "name": "Wrenchy",
   "displayName": "Wrenchy",
   "description": "A tiny companion that will react to your code state. He has different emotions such as happy,neutral,sad and confused just don't make him angry!",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "publisher": "ChaplainRafael",
   "icon": "images/wrenchy.png",
